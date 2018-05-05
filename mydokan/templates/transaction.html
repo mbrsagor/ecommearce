@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Transaction</title>
+  </head>
+  <body>
+    {% if form %}
+    <form method="POST">
+      {% csrf_token %}
+      {{form}}
+      <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    Name : {{name}}
+    Quantity : {{quantity}}
+    {% endif %}
+  </body>
+</html>

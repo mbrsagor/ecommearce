@@ -1,0 +1,272 @@
+{% extends 'app/base.html' %}
+{% load static %}
+  <title>{% block title %} Home || My Dokan {% endblock %}</title>
+
+	{% block banner %}
+
+	<!-- banner -->
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+				<li data-target="#myCarousel" data-slide-to="4" class=""></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<div class="container">
+						<div class="carousel-caption">
+							<h3>The Biggest <span>Sale</span></h3>
+							<p>Special for today</p>
+							<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						</div>
+					</div>
+				</div>
+				<div class="item item2">
+					<div class="container">
+						<div class="carousel-caption">
+							<h3>Summer <span>Collection</span></h3>
+							<p>New Arrivals On Sale</p>
+							<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						</div>
+					</div>
+				</div>
+				<div class="item item3">
+					<div class="container">
+						<div class="carousel-caption">
+							<h3>The Biggest <span>Sale</span></h3>
+							<p>Special for today</p>
+							<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						</div>
+					</div>
+				</div>
+				<div class="item item4">
+					<div class="container">
+						<div class="carousel-caption">
+							<h3>Summer <span>Collection</span></h3>
+							<p>New Arrivals On Sale</p>
+							<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						</div>
+					</div>
+				</div>
+				<div class="item item5">
+					<div class="container">
+						<div class="carousel-caption">
+							<h3>The Biggest <span>Sale</span></h3>
+							<p>Special for today</p>
+							<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+			<!-- The Modal -->
+	    </div>
+		<!-- //banner -->
+		<!---728x90--->
+{% endblock %}
+{% block body %}
+    <div class="banner_bottom_agile_info">
+      <div class="container">
+        <div class="row">
+          <div class="well">
+            <h2>Top Category</h2>
+          </div>
+          <!-- Start Categtory -->
+          {% for cat in category %}
+             <div class="col-md-3 product-men">
+              <div class="men-pro-item simpleCart_shelfItem">
+                  <a href="{% url 'category_views' cat.name %}">
+                    <img src="/media/{{cat.image}}" alt=""/>
+                  </a>
+                <div class="item-info-product ">
+                  <h4><a href="{% url 'category_views' cat.name %}">{{cat.name}}</a></h4>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- End Categtory -->
+      <br /><br /><br />
+		<div class="container">
+				<div id="horizontalTab">
+						<ul class="resp-tabs-list">
+							<li> Men's</li>
+							<li> Women's</li>
+							<li> Bags</li>
+							<li> Footwear</li>
+						</ul>
+					<div class="resp-tabs-container">
+					<!--/tab_one-->
+						<div class="tab1">
+
+							{% for item in item_man %}
+							<div class="col-md-3 product-men">
+								<div class="men-pro-item simpleCart_shelfItem">
+									<div class="men-thumb-item">
+										<img src="/media/{{item.image}}" alt="" class="pro-image-front">
+										<img src="/media/{{item.image}}" alt="" class="pro-image-back">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="{% url 'add_cart_views' item.id %}" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+											<span class="product-new-top">{{item.warranty}}</span>
+
+									</div>
+									<div class="item-info-product ">
+										<h4><a href="{% url 'single_page_views' item.id %}">{{item.name}}</a></h4>
+										<div class="info-product-price">
+											<span class="item_price">৳ {{item.price}}</span>
+											<del>৳ {{item.regular_price}}</del>
+										</div>
+                    <a class="add_to_cart" href="{% url 'add_cart_views' item.id %}">Add to cart</a>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+							<div class="clearfix"></div>
+
+						</div>
+						<!--//tab_one-->
+						<!--/tab_two-->
+						<div class="tab2">
+
+              {% for woman_cat in item_woman %}
+
+							 <div class="col-md-3 product-men">
+								<div class="men-pro-item simpleCart_shelfItem">
+									<div class="men-thumb-item">
+										<img src="/media/{{woman_cat.image}}" alt="" class="pro-image-front">
+										<img src="/media/{{woman_cat.image}}" alt="" class="pro-image-back">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+											<span class="product-new-top">{{woman_cat.warranty}}</span>
+
+									</div>
+									<div class="item-info-product ">
+										<h4><a href="{% url 'single_page_views' woman_cat.id %}">{{woman_cat.name}}</a></h4>
+										<div class="info-product-price">
+											<span class="item_price">৳ {{woman_cat.price}}</span>
+											<del>৳ {{woman_cat.regular_price}}</del>
+										</div>
+										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+  											<form action="#" method="post">
+  												<fieldset>
+  													<input type="submit" name="submit" value="Add to cart" class="button" />
+  												</fieldset>
+  											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
+              {% endfor %}
+
+
+							<div class="clearfix"></div>
+						</div>
+					 <!--//tab_two-->
+           <div class="tab3">
+
+             {% for bag_cat in item_bag %}
+
+              <div class="col-md-3 product-men">
+               <div class="men-pro-item simpleCart_shelfItem">
+                 <div class="men-thumb-item">
+                   <img src="/media/{{bag_cat.image}}" alt="" class="pro-image-front">
+                   <img src="/media/{{bag_cat.image}}" alt="" class="pro-image-back">
+                     <div class="men-cart-pro">
+                       <div class="inner-men-cart-pro">
+                         <a href="single.html" class="link-product-add-cart">Quick View</a>
+                       </div>
+                     </div>
+                     <span class="product-new-top">{{bag_cat.warranty}}</span>
+
+                 </div>
+                 <div class="item-info-product ">
+                   <h4><a href="{% url 'single_page_views' bag_cat.id %}">{{bag_cat.name}}</a></h4>
+                   <div class="info-product-price">
+                     <span class="item_price">৳ {{bag_cat.price}}</span>
+                     <del>৳ {{bag_cat.regular_price}}</del>
+                   </div>
+                   <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                       <form action="#" method="post">
+                         <fieldset>
+                           <input type="submit" name="submit" value="Add to cart" class="button" />
+                         </fieldset>
+                       </form>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             {% endfor %}
+             <div class="clearfix"></div>
+           </div>
+
+
+						<div class="tab4">
+            {% for footware in item_foodware %}
+							<div class="col-md-3 product-men">
+								<div class="men-pro-item simpleCart_shelfItem">
+									<div class="men-thumb-item">
+										<img src="/media/{{footware.image}}" alt="" class="pro-image-front">
+										<img src="/media/{{footware.image}}" alt="" class="pro-image-back">
+											<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+													<a href="single.html" class="link-product-add-cart">Quick View</a>
+												</div>
+											</div>
+											<span class="product-new-top">{{footware.warranty}}</span>
+									</div>
+									<div class="item-info-product ">
+										<h4><a href="{% url 'single_page_views' footware.id %}">{{footware.name}}</a></h4>
+										<div class="info-product-price">
+											<span class="item_price">{{footware.price}}</span>
+											<del>{{footware.regular_price}}</del>
+										</div>
+										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+											<form action="#" method="post">
+												<fieldset>
+													<input type="submit" name="submit" value="Add to cart" class="button" />
+												</fieldset>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+              {% endfor %}
+
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- //new_arrivals -->
+	<!-- /we-offer -->
+		<div class="sale-w3ls">
+			<div class="container">
+				<h6>We Offer Flat <span>40%</span> Discount</h6>
+
+				<a class="hvr-outline-out button2" href="single.html">Shop Now </a>
+			</div>
+		</div>
+	<!-- //we-offer -->
+{% endblock %}

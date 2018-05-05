@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %}
+  <title>{% block title %} Cart Page || My Dokan {% endblock %}</title>
+
+{% block body %}
+		<div class="container">
+      <div class="row">
+        {{session_cart}}
+        <div class="col-md-9">
+          <br/>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{add_cart.name}}</td>
+                <td>{{add_cart.price}}</td>
+                <td>Item: <input type="number" name="quantity" value="1"></td>
+                <td><img src="/media/{{add_cart.image}}" height="60px"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+		</div>
+	<!-- //we-offer -->
+{% endblock %}
